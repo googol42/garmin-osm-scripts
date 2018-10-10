@@ -65,7 +65,7 @@ class Downloader(object):
 
     def log_build(self):
         safe_name = pipes.quote(self.map_to_build)
-        subprocess.call([f'echo -e `date +%d.%m.%Y\ %H:%M` build {safe_name} > updates'], shell=True)
+        subprocess.call([f'echo -e "`date +%d.%m.%Y\ %H:%M`: build {safe_name}\n$(cat updates)" > updates'], shell=True)
 
 
 def run_step(*args):

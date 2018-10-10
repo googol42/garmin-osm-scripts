@@ -74,6 +74,16 @@ def run_step(*args):
     subprocess.call(["perl", f"mt.pl" , f"--language={LANGUAGE}", f"--cores={CORES}", f"--ram={RAM}", *args])
     os.chdir('../..')
 
+
+def build_test_map():
+    map_name = 'test-map'
+    os.chdir(BASE_DIR + '/tools/mkgmap/')
+    subprocess.call(['java', '-jar', 'mkgmap.jar', f'--mapname={map_name}', 'test-map:all-elements'])
+    subprocess.call(['rm', 'osmmap.img'])
+    subprocess.call(['rm', 'osmmap.tdb'])
+    subprocess.call(['mv', f'{map_name}.img', '../../../../output/'])
+    os.chdir('../../../..')
+
 if __name__ == '__main__':
     ## Alps, DEU+, BW
     MapBuilder('Freizeitkarte_ALPS', 'alps', 'DEXTENDEDROUTING', 'Freizeitkarte_EUROPE')

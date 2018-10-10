@@ -71,7 +71,6 @@ class Downloader(object):
 def run_step(*args):
     args = list(filter(None, args))
     os.chdir(BASE_DIR)
-    print(args)
     subprocess.call(["perl", f"mt.pl" , f"--language={LANGUAGE}", f"--cores={CORES}", f"--ram={RAM}", *args])
     os.chdir('../..')
 

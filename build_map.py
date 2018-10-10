@@ -11,7 +11,7 @@ LANGUAGE = 'de'
 BASE_DIR = './fzk-mde-garmin/Freizeitkarte-Entwicklung'
 
 
-class Downloader(object):
+class MapBuilder(object):
     def __init__(self, map_to_build, output_name, build_args=None, needed_region=None, download_osm=True):
         self.map_to_build = map_to_build
         self.output_name = output_name
@@ -76,25 +76,25 @@ def run_step(*args):
 
 if __name__ == '__main__':
     ## Alps, DEU+, BW
-    Downloader('Freizeitkarte_ALPS', 'alps', 'DEXTENDEDROUTING', 'Freizeitkarte_EUROPE')
-    Downloader('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE', download_osm=False)
-    Downloader('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw', needed_region='Freizeitkarte_EUROPE', download_osm=False)
+    MapBuilder('Freizeitkarte_ALPS', 'alps', 'DEXTENDEDROUTING', 'Freizeitkarte_EUROPE')
+    MapBuilder('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE', download_osm=False)
+    MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw', needed_region='Freizeitkarte_EUROPE', download_osm=False)
 
     ## DEU+ and BW
-    # Downloader('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE')
-    # Downloader('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw', needed_region='Freizeitkarte_EUROPE', download_osm=False)
+    # MapBuilder('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE')
+    # MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw', needed_region='Freizeitkarte_EUROPE', download_osm=False)
 
     ## DEU and BW
-    # Downloader('Freizeitkarte_DEU', 'deutschland')
-    # Downloader('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw', needed_region='Freizeitkarte_DEU', download_osm=False)
+    # MapBuilder('Freizeitkarte_DEU', 'deutschland')
+    # MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw', needed_region='Freizeitkarte_DEU', download_osm=False)
 
     ## Alles unabhängig
-    # Downloader('Freizeitkarte_ALPS', 'alps', 'DEXTENDEDROUTING', 'Freizeitkarte_EUROPE')
-    # Downloader('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE')
-    # Downloader('Freizeitkarte_DEU', 'deutschland')
-    # Downloader('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw')
-    # Downloader('Freizeitkarte_IRL', 'irland')
-    # Downloader('Freizeitkarte_SAARLAND', 'saarland')
-    # Downloader('Freizeitkarte_CHE', 'ch')
-    # Downloader('Freizeitkarte_AUT', 'at')
+    # MapBuilder('Freizeitkarte_ALPS', 'alps', 'DEXTENDEDROUTING', 'Freizeitkarte_EUROPE')
+    # MapBuilder('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE')
+    # MapBuilder('Freizeitkarte_DEU', 'deutschland')
+    # MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw')
+    # MapBuilder('Freizeitkarte_IRL', 'irland')
+    # MapBuilder('Freizeitkarte_SAARLAND', 'saarland')
+    # MapBuilder('Freizeitkarte_CHE', 'ch')
+    # MapBuilder('Freizeitkarte_AUT', 'at')
 

@@ -17,7 +17,7 @@ class MapBuilder(object):
         self.output_name = output_name
         self.build_args = []
         if build_args:
-            self.build_args = build_args
+            self.build_args.extend(build_args)
         self.needed_region = needed_region
         self.download_osm = download_osm
         self.start_work()
@@ -85,7 +85,7 @@ def build_test_map():
 
 if __name__ == '__main__':
     ## Alps, DEU+, BW
-    MapBuilder('Freizeitkarte_ALPS', 'alps', 'DEXTENDEDROUTING', 'Freizeitkarte_EUROPE')
+    MapBuilder('Freizeitkarte_ALPS', 'alps', ['DEXTENDEDROUTING'], 'Freizeitkarte_EUROPE')
     MapBuilder('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE', download_osm=False)
     MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw', needed_region='Freizeitkarte_EUROPE', download_osm=False)
 
@@ -98,7 +98,7 @@ if __name__ == '__main__':
     # MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw', needed_region='Freizeitkarte_DEU', download_osm=False)
 
     ## Alles unabhängig
-    # MapBuilder('Freizeitkarte_ALPS', 'alps', 'DEXTENDEDROUTING', 'Freizeitkarte_EUROPE')
+    # MapBuilder('Freizeitkarte_ALPS', 'alps', '[DEXTENDEDROUTING]', 'Freizeitkarte_EUROPE')
     # MapBuilder('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE')
     # MapBuilder('Freizeitkarte_DEU', 'deutschland')
     # MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw')

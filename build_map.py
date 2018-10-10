@@ -2,11 +2,9 @@
 import subprocess
 import pipes
 import os
+import yaml
 
 
-RAM = 10000
-CORES = 6
-STYLE = 'my-outdoor.TYP'
 LANGUAGE = 'de'
 BASE_DIR = './fzk-mde-garmin/Freizeitkarte-Entwicklung'
 
@@ -58,8 +56,9 @@ class MapBuilder(object):
         return name
 
     def apply_style(self, file_name):
+        config = yaml.safe_load(open("./build_map_config.yaml"))
         os.chdir('ReplaceTyp')
-        subprocess.call(['./ReplaceTyp.sh', f'../output/{file_name}', STYLE])
+        subprocess.call(['./ReplaceTyp.sh', f'../output/{file_name}', config['style']])
         os.chdir('..')
 
     def log_build(self):
@@ -68,9 +67,14 @@ class MapBuilder(object):
 
 
 def run_step(*args):
+    config = yaml.safe_load(open("./build_map_config.yaml"))
+    ram = config['ram']
+    cores = config['cores']
+    style = config['style']
+
     args = list(filter(None, args))
     os.chdir(BASE_DIR)
-    subprocess.call(["perl", f"mt.pl" , f"--language={LANGUAGE}", f"--cores={CORES}", f"--ram={RAM}", *args])
+    subprocess.call(["perl", f"mt.pl" , f"--language={LANGUAGE}", f"--cores={cores}", f"--ram={ram}", *args])
     os.chdir('../..')
 
 

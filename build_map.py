@@ -49,9 +49,8 @@ class MapBuilder(object):
         self.apply_style(file_name)
         self.log_build()
 
-
     def move_map(self, is_explore_map=False):
-        name = self.output_name
+        name = pipes.quote(self.output_name)
         if is_explore_map:
             name += '-explore'
         name += '.img'

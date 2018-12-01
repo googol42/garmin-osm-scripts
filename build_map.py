@@ -34,7 +34,7 @@ class MapBuilder(object):
         run_step('fetch_ele', self.map_to_build)
         run_step('join', self.map_to_build)
         run_step('split', self.map_to_build)
-        run_step('build', self.map_to_build, self.build_args)
+        run_step('build', self.map_to_build, *self.build_args)
         run_step('gmapsupp', self.map_to_build)
 
         file_name = self.move_map()
@@ -91,7 +91,7 @@ if __name__ == '__main__':
     ## Alps, DEU+, BW
     MapBuilder('Freizeitkarte_ALPS', 'alps', ['DEXTENDEDROUTING'], 'Freizeitkarte_EUROPE')
     MapBuilder('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE', download_osm=False)
-    MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw', needed_region='Freizeitkarte_EUROPE', download_osm=False)
+    MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw')
 
     ## DEU+ and BW
     # MapBuilder('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE')

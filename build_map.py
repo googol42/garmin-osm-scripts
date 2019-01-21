@@ -39,13 +39,14 @@ class MapBuilder(object):
 
         file_name = self.move_map()
         self.apply_style(file_name)
+        self.log_build()
 
         self.build_args.append('DEXPLORE')
         run_step('build', self.map_to_build, *self.build_args)
         run_step('gmapsupp', self.map_to_build)
         file_name = self.move_map(True)
         self.apply_style(file_name)
-        self.log_build()
+        self.log_build(True)
 
     def move_map(self, is_explore_map=False):
         name = pipes.quote(self.output_name)
@@ -61,8 +62,10 @@ class MapBuilder(object):
         subprocess.call(['./ReplaceTyp.sh', f'../output/{file_name}', config['style']])
         os.chdir('..')
 
-    def log_build(self):
+    def log_build(self, is_explore_map=False):
         safe_name = pipes.quote(self.map_to_build)
+        if is_explore_map:
+            safe_name += " (explore)"
         subprocess.call([f'echo -e "`date +%d.%m.%Y\ %H:%M`: build {safe_name}\n$(cat updates)" > updates'], shell=True)
 
 

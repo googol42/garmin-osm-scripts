@@ -2,7 +2,7 @@
 
 function copy {
     pv ./output/$1.img > /media/garmin-sd/GARMIN/$1.img &&
-    echo -e "`date +%d.%m.%Y`: copied $1\n$(cat updates)" > updates ;
+    echo -e "`date +%d.%m.%Y\ %H:%M`: copied $1\n$(cat updates)" > updates ;
 }
 
 copy bw;

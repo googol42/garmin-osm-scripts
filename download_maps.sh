@@ -9,14 +9,14 @@ rm -f ./tmp/*
     7z e -aoa ./tmp/TK-DACH-Wanderwege.7z -otmp/;
     mv ./tmp/TK-DACH-Wanderwege.img ./output/;
     echo "Done with 'Wanderwege'";
-    echo -e "`date +%d.%m.%Y`: downloaded TK-DACH-Wanderwege\n$(cat updates)" > updates ;
+    echo -e "`date +%d.%m.%Y\ %H:%M`: downloaded TK-DACH-Wanderwege\n$(cat updates)" > updates ;
 ) &
 (
     wget -P ./tmp/ http://gps.maroufi.net/download/badwuert-rad.img;
     echo "Downloaded 'badwuert-rad'";
     cp ./tmp/badwuert-rad.img ./output/;
     echo "Done with 'badwuert-rad'";
-    echo -e "`date +%d.%m.%Y`: downloaded badwuert-rad\n$(cat updates)" > updates ;
+    echo -e "`date +%d.%m.%Y\ %H:%M`: downloaded badwuert-rad\n$(cat updates)" > updates ;
 ) &
 wait ;
 

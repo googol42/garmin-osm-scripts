@@ -1,5 +1,9 @@
 #!/bin/sh
 
+function log {
+    echo -e "`date +%d.%m.%Y\ %H:%M`: downloaded $1 (`sha256sum ./output/$1.img | cut -d " " -f 1`)\n$(cat updates)" > updates ;
+}
+
 mkdir -p tmp
 rm -f ./tmp/*
 
@@ -9,14 +13,14 @@ rm -f ./tmp/*
     7z e -aoa ./tmp/TK-DACH-Wanderwege.7z -otmp/;
     mv ./tmp/TK-DACH-Wanderwege.img ./output/;
     echo "Done with 'Wanderwege'";
-    echo -e "`date +%d.%m.%Y\ %H:%M`: downloaded TK-DACH-Wanderwege\n$(cat updates)" > updates ;
+    log TK-DACH-Wanderwege;
 ) &
 (
     wget -P ./tmp/ http://gps.maroufi.net/download/badwuert-rad.img;
     echo "Downloaded 'badwuert-rad'";
     cp ./tmp/badwuert-rad.img ./output/;
     echo "Done with 'badwuert-rad'";
-    echo -e "`date +%d.%m.%Y\ %H:%M`: downloaded badwuert-rad\n$(cat updates)" > updates ;
+    log badwuert-rad;
 ) &
 wait ;
 

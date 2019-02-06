@@ -98,7 +98,7 @@ if __name__ == '__main__':
 
     ## DEU+ and BW
     # MapBuilder('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE')
-    # MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw', needed_region='Freizeitkarte_EUROPE', download_osm=False)
+    # MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw')
 
     ## DEU and BW
     # MapBuilder('Freizeitkarte_DEU', 'deutschland')

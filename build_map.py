@@ -66,7 +66,7 @@ class MapBuilder(object):
         safe_name = pipes.quote(self.map_to_build)
         if is_explore_map:
             safe_name += " (explore)"
-        subprocess.call([f'echo -e "`date +%d.%m.%Y\ %H:%M`: build {safe_name}\n$(cat updates)" > updates'], shell=True)
+        subprocess.call([f'echo -e "`date +%d.%m.%Y\ %H:%M`: built {safe_name}\n$(cat updates)" > updates'], shell=True)
 
 
 def run_step(*args):

@@ -91,24 +91,12 @@ def build_test_map():
     os.chdir('../../../..')
 
 if __name__ == '__main__':
-    ## Alps, DEU+, BW
     MapBuilder('Freizeitkarte_ALPS', 'alps', ['DEXTENDEDROUTING'], 'Freizeitkarte_EUROPE')
     MapBuilder('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE', download_osm=False)
     MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw')
-
-    ## DEU+ and BW
     # MapBuilder('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE')
-    # MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw')
 
-    ## DEU and BW
     # MapBuilder('Freizeitkarte_DEU', 'deutschland')
-    # MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw', needed_region='Freizeitkarte_DEU', download_osm=False)
-
-    ## Alles unabhängig
-    # MapBuilder('Freizeitkarte_ALPS', 'alps', '[DEXTENDEDROUTING]', 'Freizeitkarte_EUROPE')
-    # MapBuilder('Freizeitkarte_DEU+', 'deutschland', needed_region='Freizeitkarte_EUROPE')
-    # MapBuilder('Freizeitkarte_DEU', 'deutschland')
-    # MapBuilder('Freizeitkarte_BADEN-WUERTTEMBERG', 'bw')
     # MapBuilder('Freizeitkarte_IRL', 'irland')
     # MapBuilder('Freizeitkarte_SAARLAND', 'saarland')
     # MapBuilder('Freizeitkarte_CHE', 'ch')
